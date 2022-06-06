@@ -25,7 +25,7 @@ namespace Trestlebridge.Actions
             Console.Write("> ");
             int choice = Int32.Parse(Console.ReadLine());
 
-            if (farm.GrazingFields[choice - 1].Capacity < 1)
+            if (farm.GrazingFields[choice - 1].Capacity - farm.GrazingFields[choice - 1].Animals.Count() >= 1)
             {
                 farm.GrazingFields[choice - 1].AddResource(animal);
             }
