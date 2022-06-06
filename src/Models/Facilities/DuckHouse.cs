@@ -21,11 +21,24 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
+        public List<IFeeding> Animals
+        {
+            get
+            {
+                return _animals;
+            }
+        }
+
         public void AddResource(IFeeding animal)
         {
-            // TODO: implement this...
-            throw new NotImplementedException();
+            _animals.Add(animal);
         }
+
+        // public void AddResource(IFeeding animal)
+        // {
+        //     // TODO: implement this...
+        //     throw new NotImplementedException();
+        // }
 
         public void AddResource(List<IFeeding> animals)
         {
@@ -38,7 +51,7 @@ namespace Trestlebridge.Models.Facilities
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Duck house {shortId} has {this._animals.Count} animals\n");
+            output.Append($"Duck house {shortId} has {this._animals.Count} ducks\n");
             this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
