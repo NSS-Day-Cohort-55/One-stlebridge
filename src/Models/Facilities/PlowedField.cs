@@ -17,6 +17,15 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
+        
+        public List<ISeedProducing> Plants
+        {
+            get
+            {
+                return _plants;
+            }
+        }
+
         public int Rows {
             get {
                 return _rows;
