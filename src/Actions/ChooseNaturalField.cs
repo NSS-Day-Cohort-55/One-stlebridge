@@ -8,15 +8,15 @@ namespace Trestlebridge.Actions
 {
     public class ChooseNaturalField
     {
-        public static void CollectInput(Farm farm, ISeedProducing plant)
+        public static void CollectInput(Farm farm, ICompostProducing plant)
         {
             Utils.Clear();
 
-           void plantSeed()
+            void plantSeed()
             {
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()} animals)");
+                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()} rows of plants)");
                 }
 
                 Console.WriteLine();

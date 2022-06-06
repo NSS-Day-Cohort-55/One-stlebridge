@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
@@ -12,11 +12,18 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
 
-           void plantSeed()
+            void plantSeed()
             {
-                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                for (int i = 0; i < farm.PlowedFields.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Plowed Field ({farm.PlowedFields[i].Plants.Count()} animals)");
+                    Console.WriteLine($"{i + 1}. Plowed Field ({farm.PlowedFields[i].Plants.Count()} rows of plants)");
+                }
+                if (plant is ICompostProducing)
+                {
+                    for (int i = 0; i < farm.NaturalFields.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()} rows of plants)");
+                    }
                 }
 
                 Console.WriteLine();
@@ -26,7 +33,14 @@ namespace Trestlebridge.Actions
                 int choice = Int32.Parse(Console.ReadLine()) - 1;
                 if (farm.PlowedFields[choice].Capacity - farm.PlowedFields[choice].Plants.Count() >= 1)
                 {
-                    farm.PlowedFields[choice].AddResource(plant);
+                    if (choice + 1 > farm.PlowedFields.Count())
+                    {
+                        farm.NaturalFields[choice].AddResource(plant);
+                    }
+                    else
+                    {
+                        farm.PlowedFields[choice].AddResource(plant);
+                    }
                 }
                 else
                 {
