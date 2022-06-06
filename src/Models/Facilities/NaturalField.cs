@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities {
-    public class PlowedField : IFacility<ISeedProducing>
+    public class NaturalField : IFacility<ISeedProducing>
     {
-        private int _plantsPerRow = 5;
-        private int _rows = 13;
+        private int _plantsPerRow = 6;
+        private int _rows = 10;
         private Guid _id = Guid.NewGuid();
         private List<ISeedProducing> _plants = new List<ISeedProducing>();
 
@@ -31,7 +31,7 @@ namespace Trestlebridge.Models.Facilities {
 
         public void AddResource (ISeedProducing plant)
         {
-            // TODO: implement this...
+             // TODO: implement this...
             throw new NotImplementedException();
         }
 
