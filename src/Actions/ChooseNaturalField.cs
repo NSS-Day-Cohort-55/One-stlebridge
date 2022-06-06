@@ -12,28 +12,32 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
 
-            for (int i = 0; i < farm.NaturalFields.Count; i++)
+           void plantSeed()
             {
-                Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()})");
+                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()} animals)");
+                }
+
+                Console.WriteLine();
+                Console.WriteLine($"Place the seeds where?");
+
+                Console.Write("> ");
+                int choice = Int32.Parse(Console.ReadLine()) - 1;
+                if (farm.NaturalFields[choice].Capacity - farm.NaturalFields[choice].Plants.Count() >= 1)
+                {
+                    farm.NaturalFields[choice].AddResource(plant);
+                }
+                else
+                {
+                    Console.WriteLine("**** That facililty is not large enough ****");
+                    Console.WriteLine("**** Please choose another one ****");
+                    Console.WriteLine();
+                    plantSeed();
+                }
             }
 
-            Console.WriteLine();
-
-            // How can I output the type of animal chosen here?
-            Console.WriteLine($"Place the seed where?");
-
-            Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine()) - 1;
-
-            if (farm.NaturalFields[choice].Capacity - farm.NaturalFields[choice].Plants.Count() >= 1)
-            {
-                farm.NaturalFields[choice].AddResource(plant);
-            }
-            else
-            {
-                Console.WriteLine("**** That facililty is not large enough ****");
-                Console.WriteLine("****Please choose another one****");
-            }
+            plantSeed();
 
             /*
                 Couldn't get this to work. Can you?
