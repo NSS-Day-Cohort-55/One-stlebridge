@@ -17,6 +17,14 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
+        public List<ISeedProducing> Plants
+        {
+            get
+            {
+                return _plants;
+            }
+        }
+
         public int Rows {
             get {
                 return _rows;
@@ -32,7 +40,7 @@ namespace Trestlebridge.Models.Facilities {
         public void AddResource (ISeedProducing plant)
         {
              // TODO: implement this...
-            throw new NotImplementedException();
+            _plants.Add(plant);
         }
 
         public void AddResource(ICompostProducing plant)
