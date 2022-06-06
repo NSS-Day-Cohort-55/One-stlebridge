@@ -34,7 +34,7 @@ namespace Trestlebridge.Actions
                 else
                 {
                     Console.WriteLine("**** That facililty is not large enough ****");
-                    Console.WriteLine("****Please choose another one****");
+                    Console.WriteLine("**** Please choose another one ****");
                     Console.WriteLine();
                     placeAnimal();
                 }
