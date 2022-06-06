@@ -23,7 +23,7 @@ namespace Trestlebridge.Actions
             Console.WriteLine($"Place the animal where?");
 
             Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine()) - 1;
+            int choice = Int32.Parse(Console.ReadLine());
 
             if (farm.GrazingFields[choice - 1].Capacity - farm.GrazingFields[choice - 1].Animals.Count() >= 1)
             {
