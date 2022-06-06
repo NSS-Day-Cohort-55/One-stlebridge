@@ -62,6 +62,10 @@ namespace Trestlebridge.Models
             StringBuilder report = new StringBuilder();
 
             GrazingFields.ForEach(gf => report.Append(gf));
+            NaturalFields.ForEach(nf => report.Append(nf));
+            PlowedFields.ForEach(pf => report.Append(pf));
+            ChickenHouse.ForEach(ch => report.Append(ch));
+            DuckHouse.ForEach(dh => report.Append(dh));
 
             return report.ToString();
         }
