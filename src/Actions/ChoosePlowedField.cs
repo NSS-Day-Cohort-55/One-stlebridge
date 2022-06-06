@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions
 {
@@ -12,11 +12,21 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
 
-           void plantSeed()
+            void plantSeed()
             {
-                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                int count = 1;
+                for (int i = 0; i < farm.PlowedFields.Count; i++)
                 {
-                    Console.WriteLine($"{i + 1}. Plowed Field ({farm.PlowedFields[i].Plants.Count()} animals)");
+                    Console.WriteLine($"{count}. Plowed Field ({farm.PlowedFields[i].Plants.Count()} rows of plants)");
+                    count++;
+                }
+                if (plant is ICompostProducing)
+                {
+                    for (int i = 0; i < farm.NaturalFields.Count; i++)
+                    {
+                        Console.WriteLine($"{count}. Natural Field ({farm.NaturalFields[i].Plants.Count()} rows of plants)");
+                        count++;
+                    }
                 }
 
                 Console.WriteLine();
@@ -24,16 +34,37 @@ namespace Trestlebridge.Actions
 
                 Console.Write("> ");
                 int choice = Int32.Parse(Console.ReadLine()) - 1;
-                if (farm.PlowedFields[choice].Capacity - farm.PlowedFields[choice].Plants.Count() >= 1)
+                if (choice + 1 > farm.PlowedFields.Count())
                 {
-                    farm.PlowedFields[choice].AddResource(plant);
+                    if (farm.NaturalFields[choice - (farm.PlowedFields.Count())].Capacity - farm.NaturalFields[choice - (farm.PlowedFields.Count())].Plants.Count() >= 1)
+                    {
+
+                        if (plant is ICompostProducing)
+                        {
+                            farm.NaturalFields[choice - (farm.PlowedFields.Count())].AddResource(plant as ICompostProducing);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("**** That facililty is not large enough ****");
+                        Console.WriteLine("**** Please choose another one ****");
+                        Console.WriteLine();
+                        plantSeed();
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("**** That facililty is not large enough ****");
-                    Console.WriteLine("**** Please choose another one ****");
-                    Console.WriteLine();
-                    plantSeed();
+                    if (farm.PlowedFields[choice].Capacity - farm.PlowedFields[choice].Plants.Count() >= 1)
+                    {
+                        farm.PlowedFields[choice].AddResource(plant);
+                    }
+                    else
+                    {
+                        Console.WriteLine("**** That facililty is not large enough ****");
+                        Console.WriteLine("**** Please choose another one ****");
+                        Console.WriteLine();
+                        plantSeed();
+                    }
                 }
             }
 

@@ -3,21 +3,24 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
-namespace Trestlebridge.Models.Facilities {
-    public class NaturalField : IFacility<ISeedProducing>
+namespace Trestlebridge.Models.Facilities
+{
+    public class NaturalField : IFacility<ICompostProducing>
     {
         private int _plantsPerRow = 6;
         private int _rows = 10;
         private Guid _id = Guid.NewGuid();
-        private List<ISeedProducing> _plants = new List<ISeedProducing>();
+        private List<ICompostProducing> _plants = new List<ICompostProducing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _plantsPerRow * _rows;
             }
         }
 
-        public List<ISeedProducing> Plants
+        public List<ICompostProducing> Plants
         {
             get
             {
@@ -25,30 +28,29 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public int Rows {
-            get {
+        public int Rows
+        {
+            get
+            {
                 return _rows;
             }
         }
 
-        public int PlantsPerRow {
-            get {
+        public int PlantsPerRow
+        {
+            get
+            {
                 return _plantsPerRow;
             }
         }
 
-        public void AddResource (ISeedProducing plant)
-        {
-             // TODO: implement this...
-            _plants.Add(plant);
-        }
 
         public void AddResource(ICompostProducing plant)
         {
-            throw new NotImplementedException();
+            _plants.Add(plant);
         }
 
-        public void AddResource (List <ISeedProducing> plants)
+        public void AddResource(List<ICompostProducing> plants)
         {
             // TODO: implement this...
             throw new NotImplementedException();

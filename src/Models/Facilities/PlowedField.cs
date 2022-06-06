@@ -3,7 +3,8 @@ using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
-namespace Trestlebridge.Models.Facilities {
+namespace Trestlebridge.Models.Facilities
+{
     public class PlowedField : IFacility<ISeedProducing>
     {
         private int _plantsPerRow = 5;
@@ -11,13 +12,15 @@ namespace Trestlebridge.Models.Facilities {
         private Guid _id = Guid.NewGuid();
         private List<ISeedProducing> _plants = new List<ISeedProducing>();
 
-        public double Capacity {
-            get {
+        public double Capacity
+        {
+            get
+            {
                 return _plantsPerRow * _rows;
             }
         }
 
-        
+
         public List<ISeedProducing> Plants
         {
             get
@@ -26,25 +29,29 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public int Rows {
-            get {
+        public int Rows
+        {
+            get
+            {
                 return _rows;
             }
         }
 
-        public int PlantsPerRow {
-            get {
+        public int PlantsPerRow
+        {
+            get
+            {
                 return _plantsPerRow;
             }
         }
 
-        public void AddResource (ISeedProducing plant)
+        public void AddResource(ISeedProducing plant)
         {
             // TODO: implement this...
-            throw new NotImplementedException();
+            _plants.Add(plant);
         }
 
-        public void AddResource (List <ISeedProducing> plants)
+        public void AddResource(List<ISeedProducing> plants)
         {
             // TODO: implement this...
             throw new NotImplementedException();
