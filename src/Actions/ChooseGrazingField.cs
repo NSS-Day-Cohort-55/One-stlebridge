@@ -15,6 +15,7 @@ namespace Trestlebridge.Actions
 
 
             // How can I output the type of animal chosen here?
+
             void placeAnimal()
             {
                 for (int i = 0; i < farm.GrazingFields.Count; i++)

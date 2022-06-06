@@ -10,13 +10,13 @@ namespace Trestlebridge.Actions
     {
         public static void CollectInput(Farm farm)
         {
-            System.Console.WriteLine("1. Chicken");
+            Console.WriteLine("1. Chicken");
             Console.WriteLine("2. Cow");
             Console.WriteLine("3. Duck");
-            System.Console.WriteLine("4. Goat");
-            System.Console.WriteLine("5. Ostrich");
-            System.Console.WriteLine("6. Pig");
-            System.Console.WriteLine("7. Sheep");
+            Console.WriteLine("4. Goat");
+            Console.WriteLine("5. Ostrich");
+            Console.WriteLine("6. Pig");
+            Console.WriteLine("7. Sheep");
 
             Console.WriteLine();
             Console.WriteLine("What are you buying today?");

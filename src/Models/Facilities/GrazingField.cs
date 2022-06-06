@@ -29,8 +29,6 @@ namespace Trestlebridge.Models.Facilities
             }
         }
 
-
-
         public void AddResource(IGrazing animal)
         {
             _animals.Add(animal);
