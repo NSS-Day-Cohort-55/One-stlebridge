@@ -27,7 +27,25 @@ namespace Trestlebridge.Actions
             switch (Int32.Parse(choice))
             {
                 case 1:
+                    // needs to be Chicken House instead ChooseGrazingField.CollectInput(farm, new Chicken());
+                    break;
+                case 2:
                     ChooseGrazingField.CollectInput(farm, new Cow());
+                    break;
+                case 3:
+                    // needs to be Duck House instead ChooseGrazingField.CollectInput(farm, new Duck());
+                    break;
+                case 4:
+                    ChooseGrazingField.CollectInput(farm, new Goat());
+                    break;
+                case 5:
+                    ChooseGrazingField.CollectInput(farm, new Ostrich());
+                    break;
+                case 6:
+                    ChooseGrazingField.CollectInput(farm, new Pig());
+                    break;
+                case 7:
+                    ChooseGrazingField.CollectInput(farm, new Sheep());
                     break;
                 default:
                     break;

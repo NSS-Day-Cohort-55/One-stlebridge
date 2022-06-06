@@ -23,9 +23,10 @@ namespace Trestlebridge.Actions
             Console.WriteLine($"Place the animal where?");
 
             Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+            int choice = Int32.Parse(Console.ReadLine()) - 1;
 
             farm.GrazingFields[choice].AddResource(animal);
+            System.Console.WriteLine($"{animal} was added to Field {choice}.");
 
             /*
                 Couldn't get this to work. Can you?

@@ -4,7 +4,7 @@ using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Animals
 {
-    public class Duck : IResource, IGrazing, IEggProducing, IFeatherProducing
+    public class Duck : IResource, IFeeding, IEggProducing, IFeatherProducing
     {
 
         private Guid _id = Guid.NewGuid();
@@ -21,13 +21,13 @@ namespace Trestlebridge.Models.Animals
             }
         }
 
-        public double GrassPerDay { get; set; } = .8;
+        public double FeedPerDay { get; set; } = .8;
         public string Type { get; } = "Duck";
 
         // Methods
-        public void Graze()
+        public void Feed()
         {
-            Console.WriteLine($"Duck {this._shortId} just ate {this.GrassPerDay}kg of grass");
+            Console.WriteLine($"Duck {this._shortId} just ate {this.FeedPerDay}kg of feed");
         }
 
         public int CollectEggs()
