@@ -35,6 +35,11 @@ namespace Trestlebridge.Models.Facilities {
             throw new NotImplementedException();
         }
 
+        public void AddResource(ICompostProducing plant)
+        {
+            throw new NotImplementedException();
+        }
+
         public void AddResource (List <ISeedProducing> plants)
         {
             // TODO: implement this...
