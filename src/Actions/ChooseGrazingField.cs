@@ -14,7 +14,7 @@ namespace Trestlebridge.Actions
 
             for (int i = 0; i < farm.GrazingFields.Count; i++)
             {
-                Console.WriteLine($"{i + 1}. Grazing Field");
+                Console.WriteLine($"{i + 1}. Grazing Field ({farm.GrazingFields[i].Animals.Count()})");
             }
 
             Console.WriteLine();
@@ -23,9 +23,17 @@ namespace Trestlebridge.Actions
             Console.WriteLine($"Place the animal where?");
 
             Console.Write("> ");
-            int choice = Int32.Parse(Console.ReadLine());
+            int choice = Int32.Parse(Console.ReadLine()) - 1;
 
-            farm.GrazingFields[choice].AddResource(animal);
+            if (farm.GrazingFields[choice].Capacity - farm.GrazingFields[choice].Animals.Count() >= 1)
+            {
+                farm.GrazingFields[choice].AddResource(animal);
+            }
+            else
+            {
+                Console.WriteLine("**** That facililty is not large enough ****");
+                Console.WriteLine("****Please choose another one****");
+            }
 
             /*
                 Couldn't get this to work. Can you?
