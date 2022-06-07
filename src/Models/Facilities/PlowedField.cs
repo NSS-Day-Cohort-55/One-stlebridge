@@ -76,7 +76,7 @@ namespace Trestlebridge.Models.Facilities
                 }
             }
 
-            output.Append($"Plowed Field ({sunflowerCount} sunflower, {sesameCount} wildflower)\n");
+            output.Append($"Plowed Field ({sunflowerCount} sunflower, {sesameCount} sesame)\n");
             // this._plants.ForEach(p => output.Append($"   {p}\n"));
 
             return output.ToString();
