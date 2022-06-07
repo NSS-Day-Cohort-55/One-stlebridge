@@ -31,9 +31,9 @@ namespace Trestlebridge.Actions
                 {
                     foreach (var plant in farm.NaturalFields)
                     {
-                        if (farm.NaturalFields[i].Plants.Count() < farm.NaturalFields[i].Capacity)
+                        if (farm.NaturalFields[e].Plants.Count() < farm.NaturalFields[e].Capacity)
                         {
-                            Console.WriteLine($"{i + 1}. {plant}");
+                            Console.WriteLine($"{e + 1}. {plant}");
                         }
 
                         e++;
