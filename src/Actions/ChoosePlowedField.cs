@@ -15,22 +15,28 @@ namespace Trestlebridge.Actions
             void plantSeed()
             {
                 int count = 1;
-                for (int i = 0; i < farm.PlowedFields.Count; i++)
+                int i = 0;
+                int e = 0;
+                foreach (var plant in farm.PlowedFields)
                 {
                     if (farm.PlowedFields[i].Plants.Count() < farm.PlowedFields[i].Capacity)
                     {
-                        Console.WriteLine($"{count}. Plowed Field ({farm.PlowedFields[i].Plants.Count()} rows of plants)");
+                        Console.WriteLine($"{i + 1}. {plant}");
                     }
+
+                    i++;
                     count++;
                 }
                 if (plant is ICompostProducing)
                 {
-                    for (int i = 0; i < farm.NaturalFields.Count; i++)
+                    foreach (var plant in farm.NaturalFields)
                     {
                         if (farm.NaturalFields[i].Plants.Count() < farm.NaturalFields[i].Capacity)
                         {
-                            Console.WriteLine($"{count}. Natural Field ({farm.NaturalFields[i].Plants.Count()} rows of plants)");
+                            Console.WriteLine($"{i + 1}. {plant}");
                         }
+
+                        e++;
                         count++;
                     }
                 }
