@@ -12,7 +12,15 @@ namespace Trestlebridge.Models.Facilities
         private Guid _id = Guid.NewGuid();
         private List<ICompostProducing> _plants = new List<ICompostProducing>();
 
+
         public double Capacity
+        {
+            get
+            {
+                return _rows;
+            }
+        }
+        public double Amount
         {
             get
             {

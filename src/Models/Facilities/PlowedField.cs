@@ -16,7 +16,15 @@ namespace Trestlebridge.Models.Facilities
         {
             get
             {
-                return _plantsPerRow * _rows;
+                return _rows;
+            }
+        }
+
+        public double Amount
+        {
+            get
+            {
+                return _rows * _plantsPerRow;
             }
         }
 
