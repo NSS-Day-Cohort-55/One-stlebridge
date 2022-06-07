@@ -14,9 +14,11 @@ namespace Trestlebridge.Actions
 
             void plantSeed()
             {
-                for (int i = 0; i < farm.NaturalFields.Count; i++)
+                int i = 0;
+                foreach (var plant in farm.NaturalFields)
                 {
-                    Console.WriteLine($"{i + 1}. Natural Field ({farm.NaturalFields[i].Plants.Count()} rows of plants)");
+                    Console.WriteLine($"{i + 1}. {plant}");
+                    i++;
                 }
 
                 Console.WriteLine();

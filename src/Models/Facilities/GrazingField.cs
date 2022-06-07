@@ -46,9 +46,38 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
+            int cowCounter = 0;
+            int pigCounter = 0;
+            int goatCounter = 0;
+            int sheepCounter = 0;
+            int ostrichCounter = 0;
 
-            output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            this._animals.ForEach(a => output.Append($"   {a}\n"));
+            foreach (var animal in Animals)
+            {
+                if (animal.ToString().Contains("Cow"))
+                {
+                    cowCounter++;
+                }
+                else if (animal.ToString().Contains("Pig"))
+                {
+                    pigCounter++;
+                }
+                else if (animal.ToString().Contains("Goat"))
+                {
+                    goatCounter++;
+                }
+                else if (animal.ToString().Contains("Sheep"))
+                {
+                    sheepCounter++;
+                }
+                else if (animal.ToString().Contains("Ostrich"))
+                {
+                    ostrichCounter++;
+                }
+            }
+
+            output.Append($"Grazing Field ({cowCounter} cow, {pigCounter} pig, {goatCounter} goat, {sheepCounter} sheep and {ostrichCounter} ostrich)\n");
+            //this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }

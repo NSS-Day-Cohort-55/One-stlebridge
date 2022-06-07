@@ -60,8 +60,24 @@ namespace Trestlebridge.Models.Facilities
         {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
-            output.Append($"Natural Field {shortId} has {this._plants.Count} plants\n");
-            this._plants.ForEach(p => output.Append($"   {p}\n"));
+            int sunflowerCount = 0;
+            int wildflowerCount = 0;
+
+            foreach (var plant in Plants)
+            {
+                if (plant.ToString().Contains("Sunflower"))
+                {
+                    sunflowerCount++;
+                }
+                else if (plant.ToString().Contains("Wildflower"))
+                {
+                    wildflowerCount++;
+                }
+            }
+
+            output.Append($"Natural Field ({sunflowerCount} sunflower, {wildflowerCount} wildflower)\n");
+            // output.Append($"Natural Field {shortId} has {this._plants.Count} plants\n");
+            // this._plants.ForEach(p => output.Append($"   {p}\n"));
 
             return output.ToString();
         }
