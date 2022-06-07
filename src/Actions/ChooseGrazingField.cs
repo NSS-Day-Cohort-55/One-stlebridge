@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
-using Trestlebridge.Models.Animals;
 
 namespace Trestlebridge.Actions
 {
@@ -12,16 +11,21 @@ namespace Trestlebridge.Actions
         {
             Utils.Clear();
 
-
-
             // How can I output the type of animal chosen here?
 
             void placeAnimal()
             {
-                for (int i = 0; i < farm.GrazingFields.Count; i++)
+                int i = 0;
+                foreach (var anim in farm.GrazingFields)
                 {
-                    Console.WriteLine($"{i + 1}. Grazing Field ({farm.GrazingFields[i].Animals.Count()} animals)");
+                    if (farm.GrazingFields[i].Animals.Count() < farm.GrazingFields[i].Capacity)
+                    {
+                        Console.WriteLine($"{i + 1}. {anim}");
+                    }
+
+                    i++;
                 }
+
 
                 Console.WriteLine();
                 Console.WriteLine($"Place the animal where?");
