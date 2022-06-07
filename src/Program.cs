@@ -59,10 +59,38 @@ namespace Trestlebridge
                 else if (option == "4")
                 {
                     DisplayBanner();
-                    Console.WriteLine(Trestlebridge);
-                    Console.WriteLine("\n\n\n");
-                    Console.WriteLine("Press return key to go back to main menu.");
-                    Console.ReadLine();
+                    Console.WriteLine("1. Seed Harvester");
+                    Console.WriteLine("2. Meat Processor");
+                    Console.WriteLine("3. Egg Gatherer");
+                    Console.WriteLine("4. Composter");
+                    Console.WriteLine("5. Feather Harvester");
+                    Console.WriteLine();
+
+                    Console.WriteLine("Choose a FARMS option or press ENTER to return to the previous menu");
+                    Console.Write("> ");
+                    string subOption = Console.ReadLine();
+
+                    switch(subOption)
+                    {
+                        case "1":
+                            Console.WriteLine(Harvest.CheckHarvestSeed(Trestlebridge));
+                            break;
+                        case "2":
+                            Console.WriteLine(Harvest.CheckProcessMeat(Trestlebridge));
+                            break;
+                        case "3":
+                            Console.WriteLine(Harvest.CheckGatherEgg(Trestlebridge));
+                            break;
+                        case "4":
+                            Console.WriteLine(Harvest.CheckCompost(Trestlebridge));
+                            break;
+                        case "5":
+                            Console.WriteLine(Harvest.CheckHarvestFeather(Trestlebridge));
+                            break;
+                        default:
+                            break;
+                    }
+
                 }
                 else if (option == "5")
                 {
