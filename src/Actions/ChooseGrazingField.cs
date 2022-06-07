@@ -18,7 +18,11 @@ namespace Trestlebridge.Actions
                 int i = 0;
                 foreach (var anim in farm.GrazingFields)
                 {
-                    Console.WriteLine($"{i + 1}. {anim}");
+                    if (farm.GrazingFields[i].Animals.Count() < farm.GrazingFields[i].Capacity)
+                    {
+                        Console.WriteLine($"{i + 1}. {anim}");
+                    }
+
                     i++;
                 }
 
