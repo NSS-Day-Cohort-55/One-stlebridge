@@ -33,7 +33,7 @@ namespace Trestlebridge.Actions
                     {
                         if (farm.NaturalFields[e].Plants.Count() < farm.NaturalFields[e].Capacity)
                         {
-                            Console.WriteLine($"{e + 1}. {plant}");
+                            Console.WriteLine($"{e + 2}. {plant}");
                         }
 
                         e++;
